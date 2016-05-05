@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1
+        p Welcome to #{title}
+    for item in items    
+        .productbox
+            .content
+                h1 #{item.name}
+                img(src='./../images/#{item.image}')
+                - var fprice = 0.01 * item.price
+                p #{sprintf(priceformat, fprice)}
+                .addtobasketbtn Add to Basket
+
+
