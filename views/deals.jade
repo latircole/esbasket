@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1
+        p Welcome to #{title}
+    table
+        th Deal Name
+        th Condtional Items (ID, Quantity)
+        th Affected Item ID
+        th Percentage Discounted
+        for deal in deals    
+            tr
+                td #{deal.name}
+                td
+                    for item in deal.conditionalItems
+                        ul
+                            li #{item.itemID}
+                            li #{item.quantity}
+                td #{deal.affectedItemID}
+                td #{deal.percentageDiscounted}
+            
+
+        
+
+

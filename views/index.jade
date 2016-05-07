@@ -10,6 +10,8 @@ block content
                 img(src='./../images/#{item.image}')
                 - var fprice = 0.01 * item.price
                 p #{sprintf(priceformat, fprice)}
-                .addtobasketbtn Add to Basket
+                p #{item.attachedDealIDs}
+                a(href='/addtobasket/#{item.id}')
+                    .addtobasketbtn Add to Basket
 
 

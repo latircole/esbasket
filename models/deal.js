@@ -10,10 +10,18 @@ var DealSchema = new Schema({
         required: true
     },
     description: String, // Description
-    modified_price
-        type: Number,
-        default: 1
+    conditionalItems: [{
+        itemID: String,
+        quantity: Number
+    }],
+    affectedItemID:  {  
+        type: String,
+        required: true
     },
+    percentageDiscounted:  { 
+        type: Number,
+        required: true
+    }, 
     isDeleted: { // Is Deleted
         type: Boolean,
         default: false

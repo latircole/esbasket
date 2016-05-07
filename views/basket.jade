@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1
+        p Welcome to #{title}
+    table
+        th Product ID
+        th Amount
+        th Price
+        for item in basket.items
+            tr
+                td #{item.productID}
+                td #{item.quantity}
+            
+
+        
+
+

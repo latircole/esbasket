@@ -17,8 +17,7 @@ header {
 }
 
 .productbox{
-    width: 250;
-    height: 300px;
+    width: 250px;
     margin-right: 10px;
     margin-bottom: 20px;
     text-align: center;
@@ -34,10 +33,6 @@ header {
 }
 .addtobasketbtn:hover{
     background-color: #e8150c;
-}
-.productbox .content{
-    display: grid;
-    
 }
 .productbox img{
     height: 150px;
@@ -57,7 +52,6 @@ td{
     width: 85%;
     margin: 0px auto;
     overflow: hidden;
-    text-align: center;
 }
 .container h1{
     text-align: center;

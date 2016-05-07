@@ -17,6 +17,7 @@ var ProductSchema = new Schema({
         type: Number,
         default: 1
     },
+    attachedDealIDs: [String],
     isDeleted: { // Is Deleted
         type: Boolean,
         default: false

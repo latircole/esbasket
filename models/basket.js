@@ -9,7 +9,9 @@ var BasketSchema = new Schema({
         productID: String,
         quantity: Number        
     }],
-    price: Number
+    basketUserID: String,
+    price: Number,
+    discountedAmount: Number    
 });
 
 module.exports  = mongoose.model('Basket', BasketSchema);
