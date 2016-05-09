@@ -11,7 +11,10 @@ block content
                 - var fprice = 0.01 * item.price
                 p #{sprintf(priceformat, fprice)}
                 p #{item.attachedDealIDs}
-                a(href='/addtobasket/#{item.id}')
-                    .addtobasketbtn Add to Basket
+                - var path = 'addtobasket/'+ item.id
+                form(action=path method='get')
+                    input(type='number' name="quantity" min="0" max="10" step="1" value="0")
+                    .addtobasketbtn
+                        input(type='submit' value='ADD TO BASKET') 
 
 

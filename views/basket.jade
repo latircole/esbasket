@@ -7,10 +7,29 @@ block content
         th Product ID
         th Amount
         th Price
-        for item in basket.items
-            tr
-                td #{item.productID}
-                td #{item.quantity}
+        - if(basket != null)
+            - for item in products
+                tr
+                    td #{item.name}
+                    - for bitem in basket.items
+                        - if(item._id == bitem.productID)
+                            td #{bitem.quantity}
+                            - var fprice = 0.01 * (item.price * bitem.quantity)
+                            td #{sprintf(priceformat, fprice)}
+    - if(basket != null)
+        - var ntotal = 0.01 * (basket.price)
+        - var ftotal = 0.01 * (basket.price - basket.discountedAmount)
+        - var fdiscount = 0.01 * (basket.discountedAmount)
+        - if(fdiscount > 0)
+            .finalprice DISCOUNTED AMOUNT: #{sprintf(priceformat, fdiscount)}
+            .finalprice FINAL TOTAL: 
+                style #{sprintf(priceformat, ntotal)}  
+                | #{sprintf(priceformat, ftotal)}
+        - else
+            .finalprice FINAL TOTAL: #{sprintf(priceformat, ftotal)}
+    - else
+        p NOPE NOTHING HERE :(
+    
             
 
         

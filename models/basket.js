@@ -10,8 +10,14 @@ var BasketSchema = new Schema({
         quantity: Number        
     }],
     basketUserID: String,
-    price: Number,
-    discountedAmount: Number    
+    price: { // price
+        type: Number,
+        default: 0
+    },
+    discountedAmount: { // Discounted Amount
+        type: Number,
+        default: 0
+    }  
 });
 
 module.exports  = mongoose.model('Basket', BasketSchema);
