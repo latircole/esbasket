@@ -3,9 +3,10 @@ var Cookies = require('cookies');
 var _ = require('underscore');
 var util = require('./../utilfunctions');
 var router = express.Router();
+
 var Product = require('./../models/product');
 var Basket = require('./../models/basket');
-
+var Deal = require('./../models/deal');
 
 // Add Product
 router.post('/add', function (req, res) {
@@ -81,29 +82,34 @@ router.get('/addtobasket/:product_id', function (req, res) {
                     basket.save(function (err) {
                         if (err)
                             res.send(err);
-                        
+
                         // update the basket price
                         util.updateBasketTotal(basket.id);
 
-                        res.json({
-                            success: true,
+
+                        res.render('error', {
+                            title: 'Success',
+                            error: true,
                             message: 'Product added to basket'
                         });
 
                         console.log('Product added to basket');
                     });
                 });
-            } else{
-                res.json({
-                            success: false,
-                            message: 'quantity 0 or less'
-                        });
+            } else {
+
+                res.render('error', {
+                    error: false,
+                    title: 'Error',
+                    message: 'The quantity chosen is 0 or less. Please try with a positive number'
+                });
             }
-        } else{
-            res.json({
-                            success: false,
-                            message: "product doesn't exist"
-                        });
+        } else {
+            res.render('error', {
+                error: false,
+                title: 'Error',
+                message: "This product doesn't exist"
+            });
         }
     });
 
@@ -112,27 +118,43 @@ router.get('/addtobasket/:product_id', function (req, res) {
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-    var cookies = new Cookies(req, res);
-    var userbasketid = cookies.get("userbasketid");
-    console.log(userbasketid);
+            var cookies = new Cookies(req, res);
+            var userbasketid = cookies.get("userbasketid");
+            console.log(userbasketid);
 
-    // if cookie isn't already set
-    if (userbasketid == undefined) {
-        userbasketid = Math.random().toString(36).substring(7);
-        cookies.set("userbasketid", userbasketid, {
-            httpOnly: false
-        });
-    }
+            // if cookie isn't already set
+            if (userbasketid == undefined) {
+                userbasketid = Math.random().toString(36).substring(7);
+                cookies.set("userbasketid", userbasketid, {
+                    httpOnly: false
+                });
+            }
 
-    Product.find(function (err, products) {
-        if (err)
-            res.send(err);
+            Product.find(function (err, products) {
+                if (err)
+                    res.send(err);
+                
+                Deal.find(function (err, dealslist) {
+                    var deals = dealslist;
+                    var temp = [];
 
-        res.render('index', {
-            title: 'Products',
-            items: products
-        });
-    });
+                    _.each(products, function (p_item) {
+                        _.each(p_item.attachedDealIDs, function(p_dealIDs){
+                            temp.push(_.findWhere(dealslist, {
+                                'id': p_dealIDs
+                            }));
+                        });
+                    });
+                    
+                    deals = temp;
+
+                    res.render('index', {
+                        title: 'Products',
+                        items: products,
+                        deals: deals
+                    });
+                });
+            });
 });
 
-module.exports = router;
+            module.exports = router;

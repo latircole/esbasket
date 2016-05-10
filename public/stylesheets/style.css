@@ -5,15 +5,18 @@ body {
     background-color: #faf9f0;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+a{
+    text-decoration: none;
+    color: white;
+}
 header {
     padding: 2px 10px;
     color: #fff;
     font-size: 16px;
     text-align: center;
-    background-color: #fa5b4d;
-    border-bottom: 1px solid #df1806;
-    text-shadow: 0px -1px 0px #df1806;
+    background-color: #0e1640;
+    border-bottom: 1px solid #faf9f0;
+    text-shadow: 0px -1px 0px #1D4A7D;
 }
 
 .productbox{
@@ -23,16 +26,19 @@ header {
     text-align: center;
     background-color: white;
     display: inline-flex;
+    border-bottom: 1px solid #FFE600;
+    border-top: 1px solid #FFE600;
 }
 .addtobasketbtn{
     width: 250px;
     padding: 5px 0px;
     text-align: center;
     font-size: 20px;
-    background-color: #fa5b4d;
+    background-color: #1D4A7D;
+    
 }
 .addtobasketbtn:hover{
-    background-color: #e8150c;
+    background-color: #0e1640;
 }
 .productbox img{
     height: 150px;
@@ -51,6 +57,7 @@ header {
 }
 .productbox form input[type="submit"]{
     background: none;
+    color: white;
 }
 
 .finalprice {
@@ -58,9 +65,9 @@ header {
     float: left;
     text-align: right;
     
-    background-color: firebrick;
+    background-color: #1D4A7D;
     color: white;
-    text-shadow: 0px -1px 0px #df1806;
+    text-shadow: 0px -1px 0px #0e1640;
     
     margin-top: 10px;
     margin-right: 10px;
@@ -94,11 +101,11 @@ td{
     padding-bottom: 0px;
 }
 .navbar {
-    background-color: #e8150c;
+    background-color: #1D4A7D;
     padding: 10px 20px;
     text-align: center;
     color: #fff;
-    text-shadow: 0px -1px 0px #df1806;
+    text-shadow: 0px -1px 0px #0e1640;
 }
 .navbar a{
     margin: 0px 10px;

@@ -10,7 +10,10 @@ block content
                 img(src='./../images/#{item.image}')
                 - var fprice = 0.01 * item.price
                 p #{sprintf(priceformat, fprice)}
-                p #{item.attachedDealIDs}
+                - for dealID in item.attachedDealIDs
+                    - for deal in deals
+                        - if(deal.id == dealID)
+                            p #{deal.name}
                 - var path = 'addtobasket/'+ item.id
                 form(action=path method='get')
                     input(type='number' name="quantity" min="0" max="10" step="1" value="0")

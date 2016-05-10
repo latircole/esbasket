@@ -1,0 +1,7 @@
+{"_id":{"$oid":"572b9ac2f54b22b0104f0694"},"name":"Bread","isDeleted":false,"attachedDealIDs":[],"price":100,"image":"bread.jpg","__v":0}
+{"_id":{"$oid":"572b9ac6f54b22b0104f0695"},"name":"Milk","isDeleted":false,"attachedDealIDs":["572feb1a0cafbd1c06809b63"],"price":115,"image":"milk.jpg","__v":1}
+{"_id":{"$oid":"572b9acdf54b22b0104f0696"},"name":"Butter","isDeleted":false,"attachedDealIDs":["572b9c5af54b22b0104f069a"],"price":80,"image":"butter.jpg","__v":1}
+{"_id":{"$oid":"572b9ad0f54b22b0104f0697"},"name":"Peppers","isDeleted":false,"attachedDealIDs":[],"price":50,"image":"peppers.jpg","__v":0}
+{"_id":{"$oid":"572b9ad3f54b22b0104f0698"},"name":"Honey","isDeleted":false,"attachedDealIDs":[],"price":170,"__v":0}
+{"_id":{"$oid":"572b9ad6f54b22b0104f0699"},"description":"Something to brighten your day!","name":"Coffee","isDeleted":false,"attachedDealIDs":[],"price":2000,"__v":0}
+{"_id":{"$oid":"572d559cef4d7f643ad81dc2"},"name":"Tea","isDeleted":false,"attachedDealIDs":[],"price":300,"__v":0}

@@ -16,7 +16,9 @@ block content
                             td #{bitem.quantity}
                             - var fprice = 0.01 * (item.price * bitem.quantity)
                             td #{sprintf(priceformat, fprice)}
-    - if(basket != null)
+    - if(basket != null && basket.price != 0)
+        a(href='/basket/clearbasket') 
+            .finalprice CLEAR BASKET
         - var ntotal = 0.01 * (basket.price)
         - var ftotal = 0.01 * (basket.price - basket.discountedAmount)
         - var fdiscount = 0.01 * (basket.discountedAmount)
@@ -28,7 +30,7 @@ block content
         - else
             .finalprice FINAL TOTAL: #{sprintf(priceformat, ftotal)}
     - else
-        p NOPE NOTHING HERE :(
+        .finalprice NOPE NOTHING HERE :(
     
             
 

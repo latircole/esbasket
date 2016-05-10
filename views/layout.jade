@@ -6,11 +6,12 @@ html
 
   body
     header 
-        h1 #{title}
+        h1 
+            a(href='/') eShop
     .navbar 
         - if(title != 'Products')
             a(href='/') Home
-        a(href='basket') Basket
+        a(href='../basket') Basket
     .container
         block content
     footer
